@@ -28,3 +28,5 @@ console.log("concatenated string is", mystring.concat(mystring1));
 
 let username = "john doe";
 console.log(username.includes("ndo"));
+
+// fuck you jnanesh
