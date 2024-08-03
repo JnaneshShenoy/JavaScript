@@ -8,7 +8,6 @@
       body {
         font-weight: bold;
         font-family: Arial, sans-serif;
-        text-align: center;
         padding-top: 15%;
       }
       #pgm1 {
@@ -17,6 +16,7 @@
       .error {
         color: #ff0000;
       }
+
     </style>
   </head>
   <body>
@@ -30,13 +30,55 @@
     <button onclick="test()">Click</button>
     <p id="p1"></p> -->
 
-    <h1>Error Types</h1>
+    <!-- <h1>Error Types</h1>
     <p id="demo">
       <script src="error.js"></script>
-    </p>
+    </p> -->
+
+    <h1>Form Validation</h1>
+    <form id="form" class="tbl">
+      <table>
+        <tr>
+          <td>
+            <input
+              type="text"
+              placeholder="First Name"
+              maxlength="20"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="text"
+              placeholder="Last Name"
+              maxlength="20"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="email" placeholder="Email" maxlength="20" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="password"
+              placeholder="Password"
+              maxlength="16"
+              required
+            />
+          </td>
+        </tr>
+      </table>
+      <input type="submit" />
+    </form>
 
     <!-- <script src="throw.js"></script> -->
     <!-- <script src="script.js"></script> -->
-    <!-- <script src="script.js"></script> -->
+    <script src="form.js"></script>
   </body>
 </html>
