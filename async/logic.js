@@ -4,12 +4,12 @@
 // console.log(sum)
 
 // Impl of Async
-console.log("executing first output !!")
-console.log("executing second output !!")
-demo = ()=>{console.log("Executing output 3 !!");}
-setTimeout(demo,2000);
+// console.log("executing first output !!")
+// console.log("executing second output !!")
+// demo = ()=>{console.log("Executing output 3 !!");}
+// setTimeout(demo,2000);
 
-console.log("Executing output 4 !!")
+// console.log("Executing output 4 !!")
 
 
 /* Async methods:
@@ -21,3 +21,38 @@ console.log("Executing output 4 !!")
 
 
 // CALLBACK
+// function createQuote(quote,callback){
+//     var myQuote = "Like I always say " + quote;
+//     callback(myQuote)
+// }
+
+// function logQuote(quote){
+//    console.log(quote)
+// }
+
+// createQuote("eat your Veggies !!",logQuote)
+
+
+// function serverRequest(query, callback) {
+//    setTimeout(function () {
+//    var response = query + "full";
+//    callback(response);
+//    }, 5000);
+//    }
+//    function getResults (results) {
+//    console.log("Response from the server :", results);
+//    }
+//    serverRequest("The glass is half ", getResults);
+
+test = (nums)=>{
+   let ans = []
+   for(num in nums){
+      if(num%2==0){
+         ans.push(num)
+      }      
+   }
+   return ans
+}
+
+let nums = [1,2,3,4,5,6,7,8,9]
+console.log(test(nums))
