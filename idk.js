@@ -11,7 +11,6 @@
 // //    console.log(key," : ",typeof(student[key]))
 // // }
 
-
 // // Q1
 // function addDays(startDate, days) {
 //    const date = new Date(startDate);
@@ -54,7 +53,7 @@
 
 // function displayToday() {
 //    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//    const today = new Date();   
+//    const today = new Date();
 //    const day = days[today.getDay()];
 //    let hours = today.getHours();
 //    const minutes = today.getMinutes();
@@ -63,7 +62,7 @@
 //    hours = hours % 12;
 
 //    const timeString = hours + " " + amPm + ": " + minutes + ":" + seconds;
-   
+
 //    console.log("===========================")
 //    console.log("Today is: " + day);
 //    console.log("Current time is " + timeString);
@@ -72,26 +71,74 @@
 
 // displayToday();
 
+// function addDaysToDate(dateString, n) {
+//   let datex = dateString.split(" ");
+//   let day = parseInt(datex[0]);
+//   let month = datex[1];
+//   let year = parseInt(datex[2]);
 
-function addDaysToDate(dateString, n) {
-   let dateParts = dateString.split(' ');
-   let day = parseInt(dateParts[0]);
-   let month = dateParts[1];
-   let year = parseInt(dateParts[2]);
+//   const monthMap = {
+//     January: 0,
+//     February: 1,
+//     March: 2,
+//     April: 3,
+//     May: 4,
+//     June: 5,
+//     July: 6,
+//     August: 7,
+//     September: 8,
+//     October: 9,
+//     November: 10,
+//     December: 11,
+//   };
 
-   const monthMap = {
-       "January": 0, "February": 1, "March": 2, "April": 3, "May": 4, "June": 5, "July": 6, "August": 7, "September": 8, "October": 9, "November": 10, "December": 11
-   };
+//   let date = new Date(year, monthMap[month], day);
+//   date.setDate(date.getDate() + n);
 
-   let date = new Date(year, monthMap[month], day);
-   date.setDate(date.getDate() + n);
+//   let newMonth = Object.keys(monthMap).find(
+//     (key) => monthMap[key] === date.getMonth()
+//   );
+//   let newDate = date.getDate() + " " + newMonth + " " + date.getFullYear();
+//   return newDate;
+// }
 
-   let newMonth = Object.keys(monthMap).find(key => monthMap[key] === date.getMonth());
-   let newDate = date.getDate() + " " + newMonth + " " + date.getFullYear();
-   return newDate;
-}
+// let d = "25 January 2018";
+// let n = 36;
+// let resultDate = addDaysToDate(d, n);
+// console.log("\n\n" + n + " days from " + d + " will be : " + resultDate + "\n\n");
 
-let d = "25 January 2018";
-let n = 40;
-let resultDate = addDaysToDate(d, n);
-console.log(resultDate);
+
+// function checkDate(date) {
+//    const datePattern = /^(\d{2})-(0[1-9]|1[0-2])-(\d{4})$/;
+//    return datePattern.test(date);
+// }
+
+// date1 = "12-10-2003"
+// date2 = "11-27-2023"
+// console.log("\nInput Date : " + date1 + "\nOutput     : " + checkDate(date1) + "\n");
+// console.log("Input Date : " + date2 + "\nOutput     : " + checkDate(date2) + "\n");
+
+
+var student = {
+   name : "Jnanesh",
+   age : 20,
+   course : 'CSE',
+   USN : '4NM21CS071'
+   }
+   console.log("\n====================\n");
+   console.log(student)
+   console.log("\n====================\n");
+   for(key in student){
+   console.log(key," : ",student[key])
+   }
+   console.log("\n====================\n");
+   // for(key in student){
+   //    console.log(student[key] + ", ")
+   //    }
+   let ans = "";
+   for (let key in student) {
+       ans += student[key] + ", ";
+   }
+   ans = ans.slice(0, -2);
+   console.log(ans);
+   console.log("\n====================");
