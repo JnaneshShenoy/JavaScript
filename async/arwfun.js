@@ -19,9 +19,11 @@ function dwlnd(url,callback) {
    callback(url);
    }, 2000);
 }
-function process(pic) {
-  console.log(`processing ${pic}`);
-}
+// function process(pic) {
+//   console.log(`processing ${pic}`);
+// }
 
 let url = "https://www.jnanshenoy.netlify.app";
-dwlnd(url,process);
+dwlnd(url,function (pic){
+  console.log(`processing ${pic}`);
+});
