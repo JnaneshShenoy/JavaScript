@@ -11,14 +11,12 @@
 
 // console.log("Executing output 4 !!")
 
-
 /* Async methods:
 1.callback
 2.Promises
 3.Chain of Promises
 4.Async and await
 */
-
 
 // CALLBACK
 // function createQuote(quote,callback){
@@ -32,7 +30,6 @@
 
 // createQuote("eat your Veggies !!",logQuote)
 
-
 // function serverRequest(query, callback) {
 //    setTimeout(function () {
 //    var response = query + "full";
@@ -44,15 +41,30 @@
 //    }
 //    serverRequest("The glass is half ", getResults);
 
-test = (nums)=>{
-   let ans = []
-   for(num in nums){
-      if(num%2==0){
-         ans.push(num)
-      }      
-   }
-   return ans
-}
+// test = (nums)=>{
+//    let ans = []
+//    for(num in nums){
+//       if(num%2==0){
+//          ans.push(num)
+//       }
+//    }
+//    return ans
+// }
 
-let nums = [1,2,3,4,5,6,7,8,9]
-console.log(test(nums))
+// let nums = [1,2,3,4,5,6,7,8,9]
+// console.log(test(nums))
+
+function isodd(number) {
+  return number % 2 != 0;
+}
+function filter(numbers, fn) {
+  let results = [];
+  for (const number of numbers) {
+    if (fn(number)) {
+      results.push(number);
+    }
+  }
+  return results;
+}
+let numbers = [1, 2, 4, 7, 3, 5, 6];
+console.log(filter(numbers, isodd));
