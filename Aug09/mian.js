@@ -12,13 +12,9 @@
 // };
 // testFunction();
 
-
 import { mod1, mod2 } from "./p11.js";
 
-const test = () => {
-  console.log("Main is alive bish !!");
-  mod1();
-  mod2();
-};
+document.getElementById("isAlive").addEventListener("click", mod1);
+document.getElementById("isRolling").addEventListener("click", mod2);
 
-test();
+testFunction();
