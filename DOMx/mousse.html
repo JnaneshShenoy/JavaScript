@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <button id="btn">Click Me</button>
+   <p id="msg"></p>
+   <script>
+     let btn = document.getElementById("btn");
+
+     btn.addEventListener("contextmenu", (e) => {
+       e.preventDefault();
+     });
+
+     btn.addEventListener("mouseup", (e) => {
+       let msg = document.getElementById("msg");
+       switch (e.button) {
+         case 0:
+           msg.textContent = "Left Mouse button clicked!!";
+           break;
+         case 1:
+           msg.textContent = "Middle Mouse button clicked!!";
+           break;
+         case 2:
+           msg.textContent = "Right Mouse button clicked!!";
+           break;
+         default:
+           msg.textContent = "Invalid Mouse button clicked!!";
+           break;
+       }
+     });
+   </script>
+</body>
+</html>

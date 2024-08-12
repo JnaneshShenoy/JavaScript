@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Enter the radius of the circle :</h1>
+    <input type="number" id="radius" />
+    <p id="area"></p>
+    <button id="btn">Submit</button>
+    <p id="output"></p>
+    <script>
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", () => {
+        let radius = document.getElementById("radius").value;
+        let area = 3.14 * radius * radius;
+        document.getElementById("output").innerHTML = "Area of the circle is : " + area;
+      });
+    </script>
+  </body>
+</html>

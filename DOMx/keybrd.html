@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Modifier keys</title>
+  </head>
+  <body>
+    <button id="btnkeys">Click me with Alt, Shift, Ctrl button</button>
+    <p id="messageKeys"></p>
+    <script>
+      let btnkeys = document.getElementById("btnkeys");
+      btnkeys.addEventListener("click", (e) => {
+        let keys = [];
+        if (e.shiftKey) keys.push("Shift");
+        if (e.ctrlKey) keys.push("Ctrl");
+        if (e.altKey) keys.push("Alt");
+        if (e.metaKey) keys.push("Meta");
+        let msg = document.getElementById("messageKeys");
+        msg.textContent = `Keys: ${keys.join("+")}`;
+      });
+    </script>
+  </body>
+</html>
