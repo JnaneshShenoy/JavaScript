@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      addEventListener("DOMContentLoaded", (e) => {
+        alert("DOM fully loaded and parsed");
+      });
+
+      addEventListener("load", (e) => {
+        alert("Page fully loaded");
+      });
+
+      addEventListener("beforeunload", (e) => {
+        event.preventDefault();
+        event.returnValue = "there are unsaved changes";
+      });
+
+      addEventListener("unload", (e) => {
+        alert("Page fully unloaded");
+      });
+    </script>
+  </body>
+</html>

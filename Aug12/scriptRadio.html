@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      label{
+        display: block;
+        margin: 10px auto;
+        padding: 10px;
+        background-color: #f4f4f4;
+        cursor: pointer;
+      }
+      btn{
+        padding: 10px;
+        background-color: #21d4ce;
+        cursor: pointer;
+        margin: 10px auto;
+        border-radius: 5px;
+        font-size: 18px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <label><input type="radio" name="size" value="XS" id="xs" />XS</label>
+    <label><input type="radio" name="size" value="S" id="s" />S</label>
+    <label><input type="radio" name="size" value="M" id="m" />M</label>
+    <label><input type="radio" name="size" value="L" id="l" />L</label>
+    <button id="btn">show selected value</button>
+    <script>
+      const btn = document.getElementById("btn");
+      const radiobuttons = document.querySelectorAll('input[name="size"]');
+      btn.addEventListener("click", () => {
+        let selectedSize;
+        for (const radiobutton of radiobuttons) {
+          if (radiobutton.checked) {
+            selectedSize = radiobutton.value;
+            alert("selected size is " + selectedSize);
+            break;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
