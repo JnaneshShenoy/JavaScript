@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Form</title>
+  </head>
+  <body>
+    <form action="signup.html" method="post" id="signup">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter name" />
+      <small></small>
+      <input type="text" id="email" name="email" placeholder="Enter email" />
+      <small></small>
+      <button type="submit" class="full">Subscribe</button>
+    </form>
+    <script>
+      const form = document.getElementById("signup");
+      const Name_required = "Please enter your name";
+      const Email_required = "Please enter your email";
+      const Email_invalid = "Please enter a valid email";
+
+      function showMessage(input, message, type) {
+        const msg = input.parentNode.querySelect("small");
+        msg.innerText = message;
+        input.className = type ? "success" : "error";
+        return type;
+      }
+
+      function showSuccess(input) {
+        return showMessage(input, " ", true);
+      }
+      function showError(input, message) {
+        return showMessage(input, message, false);
+      }
+      function hasValue(input, message) {
+        if (input.value.trim() === " ") {
+          return showError(input, message);
+        }
+        return showSuccess(input);
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let nameValid = hasValue(form.elements["name"], Name_required);
+
+        let emialVlaid = validateEmail(
+          form.elements["email"],
+          Email_required,
+          Email_invalid
+        );
+
+        if (nameValid && emialVlaid) {
+          alert("Demo only");
+        }
+      });
+    </script>
+  </body>
+</html>
