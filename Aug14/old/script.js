@@ -1,20 +1,15 @@
 const form = document.getElementById("signup");
 const NAME_REQUIRED = "Please enter your name";
 const EMAIL_REQUIRED = "Please enter your email";
-const EMAIL_INVALID = "please enter a valid email address";
+const EMAIL_INVALID = "Please enter a valid email address";
 
 function showMessage(input, message, isValid) {
-  const formControl = input.parentElement;
-  const errorMessage = formControl.querySelector("small");
+  const errorMessage = input.nextElementSibling;
 
   if (isValid) {
     errorMessage.textContent = "";
-    formControl.classList.remove("error");
-    formControl.classList.add("success");
   } else {
     errorMessage.textContent = message;
-    formControl.classList.add("error");
-    formControl.classList.remove("success");
   }
 }
 
@@ -44,12 +39,16 @@ function validateEmail(input) {
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  let nameValid = hasValue(form.elements["name"], NAME_REQUIRED);
-  let emailValid = hasValue(form.elements["email"], EMAIL_REQUIRED);
-  emailValid = validateEmail(form.elements["email"]);
+
+  const nameValid = hasValue(form.elements["name"], NAME_REQUIRED);
+  const emailValid =
+    hasValue(form.elements["email"], EMAIL_REQUIRED) &&
+    validateEmail(form.elements["email"]);
 
   if (nameValid && emailValid) {
-    // Form is valid, submit it
+    alert("Verification successful!!");
     form.submit();
+  } else {
+    alert("Form is not valid");
   }
 });

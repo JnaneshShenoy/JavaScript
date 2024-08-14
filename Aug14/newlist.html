@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Creating List Items</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>Home</li>
+    </ul>
+    <script>
+      const menu = document.getElementById("menu");
+
+      let li = document.createElement("li");
+      li.textContent = "Products";
+      menu.appendChild(li);
+
+      li = document.createElement("li");
+      li.textContent = "About us";
+      menu.appendChild(li);
+    </script>
+  </body>
+</html>
