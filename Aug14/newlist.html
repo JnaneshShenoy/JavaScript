@@ -3,19 +3,20 @@
     <title>Creating List Items</title>
   </head>
   <body>
-    <ul id="menu">
-      <li>Home</li>
-    </ul>
+    <ul id="menu"></ul>
     <script>
+      function createMenu(name) {
+        let li = document.createElement("li");
+        li.textContent = name;
+        return li;
+      }
       const menu = document.getElementById("menu");
 
       let li = document.createElement("li");
       li.textContent = "Products";
-      menu.appendChild(li);
-
-      li = document.createElement("li");
-      li.textContent = "About us";
-      menu.appendChild(li);
+      menu.appendChild(createMenu("Home"));
+      menu.appendChild(createMenu("About"));
+      menu.appendChild(createMenu("Signup"));
     </script>
   </body>
 </html>
