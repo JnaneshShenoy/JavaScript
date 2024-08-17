@@ -1,0 +1,3 @@
+Ajax is asynchronous programming code
+The code is written in JavaScript
+Ajax Babess!!

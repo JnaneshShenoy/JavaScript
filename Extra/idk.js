@@ -107,7 +107,6 @@
 // let resultDate = addDaysToDate(d, n);
 // console.log("\n\n" + n + " days from " + d + " will be : " + resultDate + "\n\n");
 
-
 // function checkDate(date) {
 //    const datePattern = /^(\d{2})-(0[1-9]|1[0-2])-(\d{4})$/;
 //    return datePattern.test(date);
@@ -117,7 +116,6 @@
 // date2 = "11-27-2023"
 // console.log("\nInput Date : " + date1 + "\nOutput     : " + checkDate(date1) + "\n");
 // console.log("Input Date : " + date2 + "\nOutput     : " + checkDate(date2) + "\n");
-
 
 // var student = {
 //    name : "Jnanesh",
@@ -142,3 +140,44 @@
 //    ans = ans.slice(0, -2);
 //    console.log(ans);
 //    console.log("\n====================");
+
+function validateForm() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+
+  var nameError = document.getElementById("nameError");
+  var emailError = document.getElementById("emailError");
+
+  // Clear previous errors
+  nameError.textContent = "";
+  emailError.textContent = "";
+
+  // Simple name validation (only letters, spaces, and hyphens allowed)
+  var nameRegex = /^[a-zA-Z\s\-]+$/;
+  var valid = true;
+
+  // Name validation
+  if (name.trim() === "") {
+    nameError.textContent = "Please enter name.";
+    valid = false;
+  } else if (!nameRegex.test(name)) {
+    alert("Invalid name");
+    valid = false;
+  }
+
+  // Email validation (basic pattern)
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (email.trim() === "") {
+    emailError.textContent = "Please enter email.";
+    valid = false;
+  } else if (!emailRegex.test(email)) {
+    alert("Invalid email");
+    valid = false;
+  }
+
+  // If everything is valid
+  if (valid) {
+    alert("Valid data!!");
+  }
+}
