@@ -119,26 +119,26 @@
 // console.log("Input Date : " + date2 + "\nOutput     : " + checkDate(date2) + "\n");
 
 
-var student = {
-   name : "Jnanesh",
-   age : 20,
-   course : 'CSE',
-   USN : '4NM21CS071'
-   }
-   console.log("\n====================\n");
-   console.log(student)
-   console.log("\n====================\n");
-   for(key in student){
-   console.log(key," : ",student[key])
-   }
-   console.log("\n====================\n");
-   // for(key in student){
-   //    console.log(student[key] + ", ")
-   //    }
-   let ans = "";
-   for (let key in student) {
-       ans += student[key] + ", ";
-   }
-   ans = ans.slice(0, -2);
-   console.log(ans);
-   console.log("\n====================");
+// var student = {
+//    name : "Jnanesh",
+//    age : 20,
+//    course : 'CSE',
+//    USN : '4NM21CS071'
+//    }
+//    console.log("\n====================\n");
+//    console.log(student)
+//    console.log("\n====================\n");
+//    for(key in student){
+//    console.log(key," : ",student[key])
+//    }
+//    console.log("\n====================\n");
+//    // for(key in student){
+//    //    console.log(student[key] + ", ")
+//    //    }
+//    let ans = "";
+//    for (let key in student) {
+//        ans += student[key] + ", ";
+//    }
+//    ans = ans.slice(0, -2);
+//    console.log(ans);
+//    console.log("\n====================");
