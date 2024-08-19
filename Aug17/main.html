@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>The XML Http Request!!</h1>
+    <button type="button" onclick="loadDoc()">Click Me</button>
+    <div id="demo"></div>
+    <script>
+      function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+          myFunction(this);
+        };
+        xhttp.open("GET", "cd_catalog.xml");
+        xhttp.send();
+      }
+      function myFunction(xml) {
+        const xmlDoc = xml.responseXML;
+        const x = xmlDoc.getElementsByTagName("CD");
+        let table = `
+        <tr>
+          <th>Artist</th>
+          <th>Title</th>
+        </tr>
+      `;
+        for (let i = 0; i < x.length; i++) {
+          table += `
+          <tr>
+            <td>${
+              x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue
+            }</td>
+            <td>${
+              x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue
+            }</td>
+          </tr>
+        `;
+        }
+        document.getElementById("demo").innerHTML = table;
+      }
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The XML Http Request!!</h1>
+    <button type="button" onclick="prevCD()">Previous</button>
+    <button type="button" onclick="nextCD()">Next</button>
+    <div id="demo"></div>
+    <script>
+      let currentCD = 0;
+      let xmlDoc;
+      let x;
+
+      function loadXML() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+          xmlDoc = this.responseXML;
+          x = xmlDoc.getElementsByTagName("CD");
+          displayCD(currentCD);
+        };
+        xhttp.open("GET", "cd_catalog.xml");
+        xhttp.send();
+      }
+
+      function displayCD(index) {
+        const cd = x[index];
+        let table = `
+          <table>
+            <tr>
+              <th>Artist</th>
+              <td>${
+                cd.getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue
+              }</td>
+            </tr>
+            <tr>
+              <th>Title</th>
+              <td>${
+                cd.getElementsByTagName("TITLE")[0].childNodes[0].nodeValue
+              }</td>
+            </tr>
+          </table>
+        `;
+        document.getElementById("demo").innerHTML = table;
+      }
+
+      function prevCD() {
+        if (currentCD > 0) {
+          currentCD--;
+          displayCD(currentCD);
+        }
+      }
+
+      function nextCD() {
+        if (currentCD < x.length - 1) {
+          currentCD++;
+          displayCD(currentCD);
+        } else {
+          currentCD = 0;
+          displayCD(currentCD);
+        }
+      }
+      loadXML();
+      document.getElementById("demo").innerHTML = "";
+    </script>
+  </body>
+</html>

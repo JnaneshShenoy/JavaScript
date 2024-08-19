@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="notifyme()">Click</button>
+  </body>
+  <script>
+    const notifyobj = {
+      body: "Welcome to Notification API",
+    };
+
+    function notifyme() {
+      Notification.requestPermission().then((userPermission) => {
+        console.log(userPermission);
+        if (userPermission === "default") {
+          alert("Please Provide Permission");
+        } else {
+          new Notification("Hello Welcome", notifyobj);
+        }
+      });
+    }
+  </script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="notifyme()">Click</button>
+    <script>
+      const notifyobj = {
+        body: "Welcome to Notification API",
+      };
+
+      function notifyme() {
+        Notification.requestPermission().then((userPermission) => {
+          console.log(userPermission);
+          if (userPermission === "granted") {
+            new Notification("Hello Welcome", notifyobj);
+          } else if (userPermission === "denied") {
+            alert("You have denied permission for notifications.");
+          } else {
+            alert("Please Provide Permission");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

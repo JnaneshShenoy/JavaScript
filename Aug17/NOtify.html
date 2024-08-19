@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="notify.js"></script>
+  </head>
+  <body>
+    <h1>Notification Demo</h1>
+    <button onclick="notifyme()">Notify</button>
+  </body>
+  <script>
+    const notifyobj = {
+      body: "you hav a new email",
+      image: "./jnx.jpg",
+      icon: "./jnx.jpg",
+    };
+
+    function notifyme() {
+      alert("About to Notify.....");
+      Notification.requestPermission().then((userPermission) => {
+        console.log(userPermission);
+        if (userPermission === "default") {
+          alert("Please Provide Permission");
+        } else {
+          new Notification("New Email", notifyobj);
+        }
+      });
+    }
+  </script>
+</html>

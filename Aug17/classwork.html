@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isNumber(value) {
+        return typeof value === "number" && !isNaN(value);
+      }
+      console.log(isNumber(123));
+      console.log(isNumber("123"));
+      console.log(isNumber(NaN));
+
+      function isPureJSONObject(value) {
+        return (
+          value !== null && typeof value === "object" && !Array.isArray(value)
+        );
+      }
+      console.log(isPureJSONObject({ key: "value" }));
+      console.log(isPureJSONObject([1, 2, 3]));
+
+      function isRegExp(value) {
+    return value instanceof RegExp;
+}
+
+    </script>
+  </body>
+</html>
