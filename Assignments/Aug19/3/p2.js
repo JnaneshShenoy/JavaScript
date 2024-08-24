@@ -1,6 +1,7 @@
-function isJsonObject(value) {
-   return typeof value === 'object';
+function isJsonObj(i) {
+   return typeof i === 'object';
 }
 
-console.log(isJsonObject({'title':'Hello','body':"Bye"}));
-console.log(isJsonObject(1));
+
+console.log(isJsonObj({'title':'Hello','body':"Bye"}));
+console.log(isJsonObj(1));

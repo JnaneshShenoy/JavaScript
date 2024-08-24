@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="item-list" />
+    <br />
+    <br />
+    <button onclick="save()">save</button>
+    <button onclick="remove()">remove</button>
+    <br />
+    <br />
+    <button onclick="display()">show</button>
+
+    <script>
+      function save() {
+         console.log("saved")
+        let item = document.getElementById("item-list").value;
+        localStorage.setItem("item", item);
+      }
+
+      function remove() {
+         console.log("removed")
+        localStorage.removeItem("item");
+      }
+
+      function display() {
+        let item = localStorage.getItem("item");
+        document.getElementById("item-list").value = item;
+      }
+    </script>
+  </body>
+</html>

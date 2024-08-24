@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Session Storage</h1>
+    <input type="search" id="searchField" />
+    <button>search</button>
+    <script>
+      // function warnUserOnce() {
+      //   if (!sessionStorage.getItem("shownWarning")) {
+      //     console.log("Warining we are shutting down");
+      //   }
+      //   sessionStorage.setItem("shownWarning", "true");
+      // }
+      // warnUserOnce();
+
+      const searchField = document.querySelector("#searchField");
+      searchField.addEventListener("input", (e) => {
+        sessionStorage.setItem("searchValue", e.target.value);
+      });
+      const populateSearch = () => {
+        const searchValue = sessionStorage.getItem("searchValue");
+      };
+      populateSearch()
+    </script>
+  </body>
+</html>

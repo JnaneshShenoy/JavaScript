@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea name="" id="noteInput" cols="20"></textarea>
+    <button id="saveNote">Save Note</button>
+    <ul id="notesContainer"></ul>
+
+    <script>
+      const textArea = document.querySelector("#noteInput");
+      const saveButton = document.querySelector("#saveNote");
+      const container = document.querySelector("#notesContainer");
+
+      const notes = ["walk the dog", "remember to study"];
+      localStorage.setItem("notes", JSON.stringify(notes));
+
+      const loadNotes = () => {
+        const savedNotes = JSON.parse(localStorage.getItem("notes"));
+        for (let note of savedNotes) {
+          const noteElement = document.createElement("li");
+          noteElement.textContent = note;
+          container.appendChild(noteElement);
+        }
+      };
+
+      loadNotes();
+
+      saveButton.addEventListener("click", () => {
+        const noteContent = textArea.value.trim();
+        if (noteContent) {
+          const noteElement = document.createElement("li");
+          noteElement.textContent = noteContent;
+          container.appendChild(noteElement);
+
+          const savedNotes = JSON.parse(localStorage.getItem("notes"));
+          savedNotes.push(noteContent);
+          localStorage.setItem("notes", JSON.stringify(savedNotes));
+
+          textArea.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
