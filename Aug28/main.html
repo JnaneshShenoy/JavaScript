@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form1">
+      <label for="visitor_name">Visitor Name:</label>
+      <input type="text" id="vname" name="visitor_name" />
+      <br />
+      <label for="numberOfMembers">Number Of Members:</label>
+      <input type="number" id="nMembers" name="number_of_members" />
+      <br />
+      <label for="Contact">Contact:</label>
+      <input type="tel" id="contact" name="contact_no" />
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+      <br />
+      <label for="food-type">Type of Food:</label>
+      <br />
+      <select name="food_type" id="food-type">
+        <option value="South Indian">South Indian</option>
+        <option value="North Indian">North Indian</option>
+        <option value="Western">Western</option>
+      </select>
+      <br />
+      <input type="submit" value="Register" />
+    </form>
+
+    <script>
+      const form = document.querySelector("#form1");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const visitorName = form.elements["visitor_name"].value;
+        const numberOfMembers = form.elements["number_of_members"].value;
+        const contactNo = form.elements["contact_no"].value;
+        const email = form.elements["email"].value;
+        const foodType = form.elements["food_type"].value;
+
+        console.log(`Visitor Name: ${visitorName}`);
+        console.log(`Number of Members: ${numberOfMembers}`);
+        console.log(`Contact No: ${contactNo}`);
+        console.log(`Email: ${email}`);
+        console.log(`Type of Food: ${foodType}`);
+
+        const p = document.createElement("p");
+        p.innerText = `Visitor Name: ${visitorName}\nNumber of Members: ${numberOfMembers}\nContact No: ${contactNo}\nEmail: ${email}\nType of Food: ${foodType}`;
+        document.body.append(p);
+      });
+    </script>
+  </body>
+</html>

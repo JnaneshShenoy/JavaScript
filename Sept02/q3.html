@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>double click anywhere</h1>
+    <script>
+      document.addEventListener("dblclick", function () {
+        try {
+          let p = document.createElement('p');
+          p.textContent = "double clicked!";
+          document.body.appendChild(p);
+          console.log("double clicked!")
+        } catch (error) {
+          console.error("An error occurred:", error);
+        }
+      });
+    </script>
+  </body>
+</html>

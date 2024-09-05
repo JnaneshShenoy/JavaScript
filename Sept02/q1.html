@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+  </head>
+  <body>
+    <div id="main">
+      <input placeholder="date" type="number" id="date" />
+      <input placeholder="month" type="number" id="month" />
+      <input placeholder="year" type="number" id="year" />
+
+      <button id="btn">Submit</button>
+
+      <p id="output"></p>
+    </div>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let date = document.getElementById("date");
+      let month = document.getElementById("month");
+      let year = document.getElementById("year");
+      let output = document.getElementById("output");
+
+      btn.addEventListener("click", () => {
+        let d = date.value;
+        let m = month.value;
+        let y = year.value;
+        let today = new Date();
+        let birthDate = new Date(y, m - 1, d);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let m1 = today.getMonth();
+        let m2 = birthDate.getMonth();
+        if (m1 < m2) {
+          age--;
+        } else if (m1 === m2) {
+          let d1 = today.getDate();
+          let d2 = birthDate.getDate();
+          if (d1 < d2) {
+            age--;
+          }
+        }
+        let months = today.getMonth() - birthDate.getMonth();
+        if (months < 0) {
+          months += 12;
+        }
+        let days = today.getDate() - birthDate.getDate();
+        if (days < 0) {
+          days += 30; // assuming 30 days in a month
+        }
+
+        output.innerHTML = `Age is ${age} years, ${months} months, and ${days} days`;
+      });
+    </script>
+  </body>
+</html>

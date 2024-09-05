@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Success</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Booking Confirmed!</h1>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="logout.html">Logout</a>
+        <a href="services.html">Services</a>
+        <a href="booking.html">Booking</a>
+        <a href="">Contact@contact@automob.co.in</a>
+        <a href="">+91 7760 677 430</a>
+      </nav>
+    </header>
+    <main>
+      <p>Thank you for booking our service!</p>
+      <p>We'll get back to you soon.</p>
+      <h2>Booking Details</h2>
+      <ul id="booking-details">
+        <!-- Booking details will be inserted here -->
+      </ul>
+    </main>
+    <script>
+      const bookingDetails = JSON.parse(localStorage.getItem("bookingDetails"));
+
+      const bookingDetailsList = document.getElementById("booking-details");
+      if (bookingDetails) {
+        bookingDetailsList.innerHTML = `
+          <li>Name: ${bookingDetails.name}</li>
+          <li>Email ID: ${bookingDetails.email}</li>
+          <li>Phone Number: ${bookingDetails.phoneCountryCode} ${bookingDetails.phoneNumber}</li>
+          <li>Service: ${bookingDetails.service}</li>
+          <li>Car Make: ${bookingDetails.carmake}</li>
+          <li>Car Model: ${bookingDetails.carmodel}</li>
+          <li>Fuel Type: ${bookingDetails.fuelType}</li>
+          <li>Appointment Date: ${bookingDetails.appointmentDate}</li>
+          <li>Address: ${bookingDetails.address}</li>
+        `;
+      } else {
+        bookingDetailsList.innerHTML = "<li>No booking details found.</li>";
+      }
+    </script>
+  </body>
+</html>

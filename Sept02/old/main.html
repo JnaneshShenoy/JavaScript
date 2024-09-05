@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Items Page</h1>
+    <ul id="menu">
+      <li class="item">HTML</li>
+      <li class="item">CSS</li>
+      <li class="item">TS</li>
+      <li class="item">JS</li>
+    </ul>
+
+    
+    <script>
+      const menu = document.getElementById("menu");
+      const items = menu.getElementsByClassName("item");
+      
+      for (let i = 0; i < items.length; i++) {
+        console.log(items[i].textContent);
+      }
+      
+      let data = [].map.call(items, (item) => item.textContent);
+      console.log(data);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>JS Siblings</title>
+</head>
+<body>
+  <ul id="menu">
+    <li>HOME</li>
+    <li>Products</li>
+    <li class="current">Customer Support</li>
+    <li>Careers</li>
+    <li>Investors</li>
+  </ul>
+  <script>
+    let current = document.querySelector(".current");
+    let nextSibling = current.nextElementSibling; 
+    console.log(nextSibling.textContent);
+
+    while(nextSibling){
+      console.log(nextSibling.textContent);
+      nextSibling = nextSibling.nextElementSibling;
+    }
+  </script>
+</body>
+</html>

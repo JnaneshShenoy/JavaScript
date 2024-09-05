@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Services</h1>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="logout.html">Logout</a>
+        <a href="services.html">Services</a>
+        <a href="booking.html">Booking</a>
+        <a href="">Contact@contact@automob.co.in</a>
+        <a href="">+91 7760 677 430</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Car repair and service available here</h2>
+      <div class="services-container">
+        <div class="service-box">
+          <h2>Maintenance Service</h2>
+          <p>Get your car maintained with our experts</p>
+        </div>
+        <div class="service-box">
+          <h2>Body Repair Service</h2>
+          <p>Get your car's body repaired with our experts</p>
+        </div>
+        <div class="service-box">
+          <h2>Car Care Service</h2>
+          <p>Try our premium car care services</p>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const user = localStorage.getItem("loggedinuser");
+        if (!user) {
+          alert("Please login to access this page.");
+          window.location.href = "login.html";
+        }
+      });
+    </script>
+  </body>
+</html>

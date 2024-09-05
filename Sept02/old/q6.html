@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+      table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      ul li:last-child {
+        border-bottom: none;
+      }
+    </style> -->
+  </head>
+  <body>
+    <h1>Q6</h1>
+    <table id="allProductsTable">
+      <thead>
+        <tr>
+          <th>pid</th>
+          <th>pname</th>
+          <th>qty</th>
+          <th>price</th>
+        </tr>
+      </thead>
+      <tbody id="allProductsTbody"></tbody>
+    </table>
+
+    <h2>Products in Stock:</h2>
+    <ul id="productsInStock"></ul>
+
+    <h2>Low Quantity Products:</h2>
+    <ul id="lowQuantityProducts"></ul>
+
+    <script>
+      class Product {
+        constructor(prodId, productName, quantity, price) {
+          this.prodId = prodId;
+          this.productName = productName;
+          this.quantity = quantity;
+          this.price = price;
+        }
+      }
+
+      let products = [
+        new Product(1, "Apple", 0, 118000),
+        new Product(2, "Oppo", 5, 15000),
+        new Product(3, "Samsung", 0, 92920),
+        new Product(4, "Nokia", 12, 21300),
+        new Product(5, "Mi", 6, 12409),
+      ];
+
+      let allProductsTbody = document.getElementById("allProductsTbody");
+      products.forEach((product) => {
+        let row = allProductsTbody.insertRow();
+        row.insertCell(0).textContent = product.prodId;
+        row.insertCell(1).textContent = product.productName;
+        row.insertCell(2).textContent = product.quantity;
+        row.insertCell(3).textContent = product.price;
+      });
+
+      let productsInStock = products.filter((product) => product.quantity > 0);
+      let productsInStockUl = document.getElementById("productsInStock");
+      productsInStock.forEach((product) => {
+        let li = document.createElement("li");
+        li.textContent = `Product Name: ${product.productName}, Quantity: ${product.quantity}`;
+        productsInStockUl.appendChild(li);
+      });
+
+      let lowQuantityProducts = products.filter(
+        (product) => product.quantity === 0
+      );
+      let lowQuantityProductsUl = document.getElementById(
+        "lowQuantityProducts"
+      );
+      lowQuantityProducts.forEach((product) => {
+        let li = document.createElement("li");
+        li.textContent = `Product Name: ${product.productName}, Quantity: ${product.quantity}`;
+        lowQuantityProductsUl.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
